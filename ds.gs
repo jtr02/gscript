@@ -4,9 +4,10 @@ if(args='')
 say '----------------------------------------'
 say '- Function Name : [DS]'
 say '-- Usage :'
-say '--- ds A B'
+say '--- ds A B [C]'
 say '---- A : Element (Raw)'
 say '---- B : Color option (r(red) or b(blue))'
+say '---- C : grfill option (f)'
 say '----- draw shaded map'
 say '----------------------------------------'
 return
@@ -14,6 +15,7 @@ endif
 
 elem=subwrd(args,1)
 copt=subwrd(args,2)
+fill=subwrd(args,3)
 
 if(copt='');say 'select color option (r/b)';return;endif
 if(copt='r');cols='white->yellow->orange->red';endif
@@ -63,7 +65,7 @@ cint=(cmax-cmin)/20
 'set timelab off'
 'set grid off'
 'color 'cmin' 'cmax' 'cint' -kind 'cols
-'set gxout shade2'
+if(fill='f');'set gxout grfill';else;'set gxout shade2';endif
 'd 'elem
 'xcbar -fs 2 -line on'
 'draw title 'elem' lev='lev' time='time

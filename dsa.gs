@@ -4,14 +4,22 @@ if(args='')
 say '----------------------------------------'
 say '- Function Name : [DSA]'
 say '-- Usage :'
-say '--- dsa A'
+say '--- dsa A B [C]'
 say '---- A : Element (Anomaly)'
+say '---- B : Color option (br(B->W->R) or rb(R->W->B))'
+say '---- C : grfill option (f)'
 say '----- draw shaded map'
 say '----------------------------------------'
 return
 endif
 
 elem=subwrd(args,1)
+copt=subwrd(args,2)
+fill=subwrd(args,3)
+
+if(copt='');say 'select color option (br/rb)';return;endif
+if(copt='br');cols='blue->aqua->white->orange->red';endif
+if(copt='rb');cols='red->orange->white->aqua->blue';endif
 
 say 'draw shaded map : 'elem
 
@@ -44,8 +52,8 @@ cmin=-cabs;cmax=cabs;cint=cabs/10
 'set grads off'
 'set timelab off'
 'set grid off'
-'color 'cmin' 'cmax' 'cint' -kind blue->aqua->white->orange->red'
-'set gxout shade2'
+'color 'cmin' 'cmax' 'cint' -kind 'cols
+if(fill='f');'set gxout grfill';else;'set gxout shade2';endif
 'd 'elem
 'xcbar -fs 2 -line on'
 'draw title 'elem' lev='lev' time='time
