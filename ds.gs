@@ -15,6 +15,7 @@ endif
 elem=subwrd(args,1)
 copt=subwrd(args,2)
 
+if(copt='');say 'select color option (r/b)';return;endif
 if(copt='r');cols='white->yellow->orange->red';endif
 if(copt='b');cols='white->skyblue->aqua->blue';endif
 
