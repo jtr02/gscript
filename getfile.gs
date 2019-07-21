@@ -1,4 +1,17 @@
-'q file'
+function getfile(args)
+
+if(args='')
+say '----------------------------------------'
+say '- Function Name : [GETFILE]'
+say '-- Usage :'
+say '--- getfile A'
+say '---- A : File number'
+say '----------------------------------------'
+return
+endif
+
+dfile=subwrd(args,1)
+'q file 'dfile
 
 str=sublin(result,5)
 nx=subwrd(str,3)
@@ -34,3 +47,5 @@ endif
 
 l=l+1
 endwhile
+
+return
