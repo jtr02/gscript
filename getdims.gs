@@ -67,3 +67,20 @@ endif
 
 say 'st='st', et='et
 say 'stime='stime', etime='etime
+
+str=sublin(result,6)
+type=subwrd(str,3)
+if(type='fixed')
+se=subwrd(str,9)
+ee=se
+smem=subwrd(str,6)
+emem=smem
+else
+se=subwrd(str,11)
+ee=subwrd(str,13)
+smem=subwrd(str,6)
+emem=subwrd(str,8)
+endif
+
+say 'se='se', ee='ee
+say 'smem='smem', emem='emem
