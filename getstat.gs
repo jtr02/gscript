@@ -45,7 +45,7 @@ sgm=subwrd(str,2)
 say 'sgm='sgm
 
 str=sublin(result,14)
-sgmq=subwrd(str,2)
+sgma=subwrd(str,2)
 say 'sgma='sgma
 
 'set gxout grid'
